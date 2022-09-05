@@ -21,6 +21,9 @@ function onSearch(evt) {
   }
   fetchCountries(coutrySearch)
     .then(countrys => {
+      if (!countrys) {
+        return;
+      }
       if (countrys.length > 2 && countrys.length < 10) {
         countryInfoEl.innerHTML = '';
         renderCountrysCard(countrys);
